@@ -1,5 +1,6 @@
+using calendarservice.Data;
 using calendarservice.Services.CalendarEntryService;
-
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //adding cors
 builder.Services.AddCors();
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("zoma")));
 //customs
 builder.Services.AddScoped<ICalendarEntryService,CalendarEntryService>();
 //

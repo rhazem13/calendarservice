@@ -29,5 +29,24 @@ namespace calendarservice.Controllers
             IList<CalendarEntry> calendarEntries = _calendarEntryService.CreateCalendarEntry(entry);
             return Ok(calendarEntries);
         }
+
+        [HttpPut]
+        public IActionResult UpdateCalendarEntry(CalendarEntry entry)
+        {
+            IList<CalendarEntry> calendarEntries = _calendarEntryService.UpdateCalendarEntry(entry);
+            return Ok(calendarEntries);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetCalendarEntry(int id)
+        {
+            return Ok(_calendarEntryService.GetCalendarEntry(id));
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteCalendarEntry(int id)
+        {
+            return Ok(_calendarEntryService.DeleteCalendarEntry(id));
+        }
     }
 }

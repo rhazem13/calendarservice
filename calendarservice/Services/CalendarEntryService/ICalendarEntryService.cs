@@ -7,5 +7,11 @@ namespace calendarservice.Services.CalendarEntryService
         IList<CalendarEntry> GetCalendarEntries();
 
         IList<CalendarEntry> CreateCalendarEntry(CalendarEntry entry);
+
+        IList<CalendarEntry> UpdateCalendarEntry(CalendarEntry entry);
+
+        CalendarEntry GetCalendarEntry(int id);
+
+        IList<CalendarEntry> DeleteCalendarEntry(int id);
     }
 }
